@@ -2,5 +2,6 @@
   --font-accent: "Rokkitt", serif;
   --text-color: #000;
   --background-light: #fff;
+  --background-blur: rgba(255, 255, 255, 0.5);
   --main-gradient: linear-gradient(258.12deg, #55aadd 0%, #4aa35a 32.81%, #f1b456 61.98%, #ca4649 100%);
 }
