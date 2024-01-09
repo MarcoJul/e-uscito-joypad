@@ -8,6 +8,7 @@ import { ReactComponent as SortIcon } from "../icons/ICN_Sort.svg";
 import { ReactComponent as CloseIcon } from "../icons/ICN_Close.svg";
 
 import classes from "./SearchBar.module.css";
+import { boldHighlights } from "../utils/boldHighlights";
 
 const SearchBar = () => {
   const searchCtx = useContext(SearchContext);
@@ -37,27 +38,7 @@ const SearchBar = () => {
     const listNames = data.result.map(({ titolo, id }) => ({ titolo, id }));
     setResultList(listNames);
   }
-
-  const boldName = (name, search) => {
-
-    const isMatch = name.toLowerCase().match(search.toLowerCase());
-    if (isMatch) {
-      const index = isMatch.index;
-
-      if (index !== 0) {
-        return <>
-          {name.substr(0, index)}<strong>{name.substr(index, search.length)}</strong>{name.substr((index + search.length), name.length)}
-        </>
-      }
-    }
-    if (name.substr(0, search.length).toLowerCase() === search.toLowerCase()) {
-      return <>
-        <strong>{name.substr(0, search.length)}</strong>{name.substr(search.length)};
-      </>
-    }
-    return name;
-  }
-
+  
   const onKeyDown = (event) => {
     if (event.key === 'ArrowDown') {
       setFocus(() => focus + 1);
@@ -79,6 +60,12 @@ const SearchBar = () => {
     searchCtx.setSearchInput("");
     setSearchWords('');
     searchCtx.setSelectedGameId(null);
+    setResultList([]);
+  }
+
+  function handleSearchSelection (result) {
+    searchCtx.setSearchInput(result.titolo);
+    searchCtx.setSelectedGameId(result.id);
     setResultList([]);
   }
 
@@ -118,11 +105,16 @@ const SearchBar = () => {
                 className={`${classes.suggestion} ${i === focus ? classes.keyActive : ''}`}
                 key={result.id}
                 onClick={() => {
-                  searchCtx.setSearchInput(result.titolo);
-                  searchCtx.setSelectedGameId(result.id);
-                  setResultList([]);
-                }}>
-                <p>{boldName(result.titolo, searchWords)}</p>
+                  handleSearchSelection(result);
+                }}
+                onKeyDown={(ev)=> {
+                  if(ev.key === "Enter"){
+                    handleSearchSelection(result);
+                    document.querySelector('#focus-search-list').focus();
+                  }
+                }}
+                >
+                <p tabIndex={0}>{boldHighlights(result.titolo, searchWords)}</p>
               </div>
             )}
           </div>}
