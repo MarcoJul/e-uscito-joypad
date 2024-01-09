@@ -118,7 +118,7 @@ const SearchBar = () => {
               </div>
             )}
           </div>}
-        <div className={classes.searchIcon} tabIndex={0}>
+        <div className={classes.searchIcon} tabIndex={-1}>
           <SearchIcon />
         </div>
         {searchCtx.searchInput.trim() === "" && searchWords === '' ? (
