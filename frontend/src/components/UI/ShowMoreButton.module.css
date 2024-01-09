@@ -1,27 +1,26 @@
+@import '../../style/variables.css';
+
 .wrapper {
-    background: linear-gradient(258.12deg, #55aadd 0%, #4aa35a 32.81%, #f1b456 61.98%, #ca4649 100%);
+    background: var(--main-gradient);
     padding: 0.2rem;
     border-radius: 4px;
+    margin-top: 2rem;
 }
 
 .button {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
     width: 100%;
     height: 2.5rem;
-    background-color: #fff;
+    background-color: var(--background-light);
     padding: 1rem;
     cursor: pointer;
+    border: none;
 }
 
-.button p {
-    font-family: "Rokkitt", serif;
+.button span {
+    font-family: var(--font-accent);
     font-size: 2.1rem;
-    color: #000;
-}
-
-.button svg {
-    width: 1.2rem;
+    color: var(--text-color);
 }

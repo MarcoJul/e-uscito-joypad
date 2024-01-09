@@ -2,13 +2,11 @@ import classes from "./ShowMoreButton.module.css";
 
 const ShowMoreButton = ({ onClick, limit }) => {
   return (
-    <button onClick={onClick}>
-      <div className={classes.wrapper}>
-        <div className={classes.button}>
-          <p>Ne voglio altri {limit}!</p>
-        </div>
+      <div className={classes.wrapper} onClick={onClick}>
+        <button className={classes.button}>
+          <span>Ne voglio altri {limit}!</span>
+        </button>
       </div>
-    </button>
   );
 };
 
