@@ -11,12 +11,13 @@ import classes from "./EpisodeSection.module.css";
 
 const limit = 8;
 
-const EpisodeSection = () => {
+export default function EpisodeSection () {
   const { searchInput, sortOrder, selectedGameId } = useContext(SearchContext);
   const [episodeList, setEpisodeList] = useState([]);
   const [offset, setOffset] = useState(0);
   const navigate = useNavigate();
 
+  // TODO: EVALUATE REDUCER
   const reducer = (state, action) => {
     if (state === undefined) return;
 
@@ -124,11 +125,7 @@ const EpisodeSection = () => {
       <p
         id="focus-search-list"
         tabIndex={0}
-        style={{
-          fontSize: "1.8rem",
-          textAlign: "center",
-          marginBottom: "2rem",
-        }}
+        className={classes.welcome}
       >
         {state === "episode_list"
           ? `Ecco gli ultimi ${limit + offset} episodi!`
@@ -147,5 +144,3 @@ const EpisodeSection = () => {
     </div>
   );
 };
-
-export default EpisodeSection;
