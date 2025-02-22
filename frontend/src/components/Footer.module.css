@@ -12,6 +12,8 @@ footer {
 
 footer a {
   margin-left: .5em;
+  color: var(--font-color-accent);
+  font-weight: 700;
 }
 
 .bottomIcon {
@@ -26,9 +28,4 @@ footer a {
   font-weight: 400;
   margin: 0 auto 1.6rem;
   letter-spacing: -0.03em;
-}
-
-.note a {
-  color: #29abe2;
-  font-weight: 700;
 }

@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { SearchContextProvider } from "./store/search-context";
+import './global.css';
 
 const router = createBrowserRouter([
   {
