@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
-import Message from "./Hero/Message";
-import HeroLinks from "./Hero/HeroLinks";
-import Logo from "./Hero/Logo";
+import Message from "./Header/Message";
+import HeroLinks from "./Header/HeroLinks";
+import Logo from "./Header/Logo";
 
-const Header = () => {
+export default function Header () {
   const [datiUltimaPuntata, setDatiUltimaPuntata] = useState({});
   const isMobile = useMediaQuery({ query: "(max-width: 920px)" });
 
@@ -47,5 +47,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

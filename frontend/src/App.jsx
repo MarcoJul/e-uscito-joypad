@@ -2,7 +2,7 @@ import EpisodeSection from "./components/EpisodeSection";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-const App = () => {
+export default function App(){
   return (
     <>
       <Header />
@@ -11,6 +11,3 @@ const App = () => {
     </>
   );
 };
-
-export default App;
-
